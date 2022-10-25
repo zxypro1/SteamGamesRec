@@ -1,19 +1,34 @@
-.App{
+@import '~antd/dist/antd.css';
+
+.gameList {
+  padding: 20px;
+}
+
+.gameForm {
+  margin: auto;
+}
+
+.App {
   flex:1;
   flex-direction: column;
-  background-color: yellow;
+  background-color: gray;
   height: 100%;
 }
 
-.left{
+.App-header {
+  height: 400px;
+}
+
+.left {
+  margin-top: 20px;
   height:100%;
-  width:300px;
-  background-color: orange;
+  width:400px;
+  /* background-color: orange; */
   float: left;
 }
 
-.right{
+.right {
   height:100%;
-  background-color: blue;
-  margin-left: 300px;
+  /* background-color: blue; */
+  margin-left: 400px;
 }

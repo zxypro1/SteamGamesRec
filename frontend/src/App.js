@@ -1,12 +1,23 @@
-import { Form, Input, Checkbox, Button } from 'antd';
+import { Form, Input, Checkbox, Button, List, Card } from 'antd';
 import './App.css';
 
+
 function App() {
+  const gameList = [{
+    name: 'CSGO',
+    price: '15.7'
+  },{
+    name: 'TF2',
+    price: '17.8'
+  }];
   return (
-    <div className='App'> 
+    <div className='App'>
+      <header className='App-header'>
+
+      </header>
       <div className='left'>
-        Left
         <Form 
+        className='gameForm'
         name='basic'
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
@@ -42,7 +53,25 @@ function App() {
           </Form.Item>
         </Form>
       </div>
-      <div className='right'>right</div>
+      <div className='right'>
+        <div className='gameList'>
+          <List
+          dataSource={gameList} 
+          grid={{ gutter: 16, 
+            column: 4,
+            xs: 1,
+            sm: 2,
+            md: 4,
+            lg: 4,
+            xl: 6,
+            xxl: 3,}}
+          renderItem={ item => (
+            <List.Item>
+              <Card title={item.name}>{item.price}</Card>
+            </List.Item>
+          ) }/>
+        </div>
+      </div>
     </div>
   );
 }
