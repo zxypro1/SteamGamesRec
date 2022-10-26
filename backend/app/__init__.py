@@ -1,4 +1,5 @@
 from flask import Flask,render_template,g,session
+from main import db 
 
 
 def creat_app():
