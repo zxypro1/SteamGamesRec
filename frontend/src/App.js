@@ -1,4 +1,4 @@
-import { Form, Input, Checkbox, Button, List, Card } from 'antd';
+import { Form, Input, Checkbox, Button, List, Card, Select } from 'antd';
 import './App.css';
 
 
@@ -9,11 +9,20 @@ function App() {
   },{
     name: 'TF2',
     price: '17.8'
+  },{
+    name: 'TF2',
+    price: '17.8'
+  },{
+    name: 'TF2',
+    price: '17.8'
+  },{
+    name: 'TF2',
+    price: '17.8'
   }];
   return (
     <div className='App'>
       <header className='App-header'>
-
+        <p>Begin</p>
       </header>
       <div className='left'>
         <Form 
@@ -27,11 +36,11 @@ function App() {
         autoComplete="off"
         >
           <Form.Item
-            label="Username"
-            name="username"
+            label="Genre"
+            name="genre"
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
-            <Input />
+            <Select></Select>
           </Form.Item>
 
           <Form.Item
@@ -56,15 +65,28 @@ function App() {
       <div className='right'>
         <div className='gameList'>
           <List
+          itemLayout="vertical"
+          size="large"
+          pagination={{
+            onChange: (page) => {
+              console.log(page);
+            },
+            pageSize: 3,
+          }}
           dataSource={gameList} 
-          grid={{ gutter: 16, 
-            column: 4,
-            xs: 1,
-            sm: 2,
-            md: 4,
-            lg: 4,
-            xl: 6,
-            xxl: 3,}}
+          // grid={{ gutter: 16, 
+          //   column: 4,
+          //   xs: 1,
+          //   sm: 2,
+          //   md: 4,
+          //   lg: 4,
+          //   xl: 6,
+          //   xxl: 3,}}
+          footer={
+            <div>
+              <b>ant design</b> footer part
+            </div>
+          }
           renderItem={ item => (
             <List.Item>
               <Card title={item.name}>{item.price}</Card>
