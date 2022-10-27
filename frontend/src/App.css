@@ -1,8 +1,8 @@
 @import '~antd/dist/antd.css';
 
-.gameList {
+/* .gameList {
   padding: 20px;
-}
+} */
 
 .gameForm {
   margin: auto;
@@ -28,8 +28,17 @@
   float: left;
 }
 
+.selected-games-list{ 
+  /* width: 80%; */
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
 .right {
   height:100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   /* background-color: blue; */
   margin-left: 400px;
 }
