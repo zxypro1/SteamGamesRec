@@ -1,11 +1,41 @@
-import { Form, Input, Checkbox, Button, List, Select, Slider, Card } from 'antd';
+import { Form, Input, Button, List, Select, Slider, Card } from 'antd';
 import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import tagList from './Taglist';
+import qs from 'qs';
+import jsonp from 'fetch-jsonp';
 import './App.css';
 const { Option } = Select;
 const { Search, TextArea } = Input;
 
+let timeout;
+let currentValue;
+const fetch = (value, callback) => {
+  if (timeout) {
+    clearTimeout(timeout);
+    timeout = null;
+  }
+  currentValue = value;
+  const fake = () => {
+    const str = qs.stringify({
+      code: 'utf-8',
+      q: value,
+    });
+    jsonp(`https://suggest.taobao.com/sug?${str}`)
+      .then((response) => response.json())
+      .then((d) => {
+        if (currentValue === value) {
+          const { result } = d;
+          const data = result.map((item) => ({
+            value: item[0],
+            text: item[0],
+          }));
+          callback(data);
+        }
+      });
+  };
+  timeout = setTimeout(fake, 300);
+};
 
 function App() {
   // 删除单条
@@ -14,6 +44,7 @@ function App() {
   const [mode, setMode] = useState('0') // 推荐模式 Recommandation mode
   const [tag, setTag] = useState([]) // 已选择的筛选tag Filter tags
   const [price, setPrice] = useState([]) // 价格范围 Price range
+  const [description, setDescription] = useState("") // 个人描述 Self description
   const form = useRef();
 
   useEffect(() => {
@@ -46,7 +77,25 @@ function App() {
     filterGames(tag, price);
   }
 
+  const onChangeDescription = (desc) => {
+    console.log(description);
+    // setDescription(desc);
+  }
+
   const filterGames = (tag, price) => { // 筛选游戏
+    const temp_list = [];
+    for (let i = 0; i < data.length; i++) {
+      if (isSubClass(tag, data[i].genre) && parseFloat(data[i].price) >= price[0] && parseFloat(data[i].price) <= price[1]) {
+        temp_list.push(data[i]);
+      }
+      setData(temp_list);
+    }
+  }
+
+  const isSubClass = (cl1, cl2) => {
+    return cl1.every(item => {
+      return cl2.includes(item);
+    })
   }
 
   const getAllGames = async () => { // 获取所有游戏
@@ -101,10 +150,13 @@ function App() {
 
   const genreList = []
   for (let i = 0; i < tagList.length; i++) {
-    genreList.push(<Option key={i} value={i}>{tagList[i]}</Option>);
+    genreList.push(<Option key={i} value={tagList[i]}>{tagList[i]}</Option>);
   }
 
   const onSearch = (value) => { // 服务器搜索
+    if (mode === '2') {
+      value = description;
+    }
     console.log(value);
     const getData = async () => {
       const { data } = await axios.get('http://localhost:3001/user', {
@@ -115,9 +167,11 @@ function App() {
       console.log(data)
       const { user } = { ...data }
       setData(user)
+      filterGames(tag, price)
     }
     getData();
   }
+
 
   const searchGameList = [];
   for (let i = 0; i < gameList.length; i++) {
@@ -130,17 +184,13 @@ function App() {
         <p>Begin</p>
       </header>
       <div className='left'>
-        <Form 
+        <Form
         className='gameForm'
         name='basic'
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
-        // onFinish={onFinish}
-        // onFinishFailed={onFinishFailed}
-        autoComplete="off"
-        ref={form}
-        >
+        autoComplete="off">
           <Form.Item
             label="Mode"
             name="mode"
@@ -154,6 +204,18 @@ function App() {
               <Option key="2" value="2">New-to-Game Recommendation</Option>
             </Select>
           </Form.Item>
+        </Form>
+        <Form 
+        className='gameForm'
+        name='basic'
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        initialValues={{ remember: true }}
+        // onFinish={onFinish}
+        // onFinishFailed={onFinishFailed}
+        autoComplete="off"
+        ref={form}
+        >
 
           <Form.Item
             label="Genre"
@@ -187,13 +249,23 @@ function App() {
               enterButton="Search"
               onSearch={onSearch}
               />:
-              <TextArea rows={4} />
+              <TextArea rows={4} 
+              onChange={(e) => setDescription(e.target.value)}
+              />
             }
           </Form.Item>
 
           {/* <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
             <Checkbox>Remember me</Checkbox>
           </Form.Item> */}
+          {
+          mode === '2' ? 
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <Button type="primary" htmlType="submit" onClick={onSearch}>
+              Submit
+            </Button>
+          </Form.Item>: ''
+          }
 
           <Form.Item 
             wrapperCol={{ offset: 1, span: 23 }}
@@ -201,15 +273,11 @@ function App() {
             name="price">
             <Slider 
             range 
-            defaultValue={[20, 50]}
-            onChange={onChangePriceRange}/>
+            defaultValue={[0, 60]}
+            onChange={onChangePriceRange}
+            min={0}
+            max={60}/>
           </Form.Item>
-
-          {/* <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item> */}
         </Form>
         <List
           className='selected-games-list'
