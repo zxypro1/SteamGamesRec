@@ -29,6 +29,13 @@ def getGameByImcompleteName(name):
     result = result.fetchall()
     return result
 
+def getUserByImcompleteName(name):
+    db = get_db()
+    result = db.execute('SELECT * FROM usersdws WHERE userName LIKE name')
+    result = result.fetchall()
+    return result
+
+
 def getGameInfoById(idArr):
     db = get_db()
     idStrArr = list(map(str, idArr))

@@ -30,7 +30,16 @@ def searchGameByName():
     if request.method == 'POST':
         name = request.values.get('name')
         return gameDataAccess.getGameByImcompleteName(name)
+    else:
+        abort(404,"Error")
 
+@bp.route("/searchUserByName", methods=['POST'])
+def searchUserByName():
+    if request.method == 'POST':
+        name = request.values.get('name')
+        return gameDataAccess.getUserByImcompleteName(name)
+    else:
+        abort(404,"Error")
 
 @bp.route("/getSimilarGamesByItem", methods=['POST'])
 def getSimilarGamesByItem():
