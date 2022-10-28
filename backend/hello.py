@@ -1,5 +1,6 @@
 from app import creat_app
 from flask import g, request
+from sqlalchemy import create_engine
 import pandas as pd
 import pickle
 
@@ -11,6 +12,8 @@ def first_action():
     g.interactions = pd.read_csv(request.files['interactions.csv'])
     res = open('savemodel.pickle', 'rb')
     g.model = pickle.load(res)
+    engine = create_engine('mysql+mysqlconnector://root:123456@127.0.0.1:3306/jxgl')
+    g.df = pd.read_sql('gamesdata', engine)
 
 
 
