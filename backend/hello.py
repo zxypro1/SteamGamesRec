@@ -8,8 +8,8 @@ app = creat_app()
 
 @app.before_first_request
 def first_action():
-    g.item_dict = pd.read_csv(request.files['gamelist.csv'])
-    g.interactions = pd.read_csv(request.files['interactions.csv'])
+    # g.df = pd.read_csv(request.files['gamesdata.csv'])
+    g.interactions = pd.read_csv('./instance/interactions.csv')
     res = open('savemodel.pickle', 'rb')
     g.model = pickle.load(res)
     engine = create_engine('mysql+mysqlconnector://root:123456@127.0.0.1:3306/jxgl')

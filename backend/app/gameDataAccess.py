@@ -4,6 +4,7 @@ import pandas as pd
 from .main import resources
 
 
+item_dict = resources.create_item_dict(g.df, 'id', 'title')
 
 def getAllGameInfo():
     db = get_db()
@@ -13,14 +14,18 @@ def getAllGameInfo():
 
 def getRecByItem(item_id):
     item_embedding_matrix = pd.read_csv(request.files['embeddings_item.csv'])
-    return resources.get_item_recs(item_embedding_matrix,item_id,g.item_dict,100,True)
+    return resources.get_item_recs(item_embedding_matrix,item_id,item_dict,100,True)
 
 def getRecByUser(user_id):
 
     user_dict = resources.create_user_dict(g.interactions)
-    scores = resources.get_recs(g.model,user_id,user_dict,g.item_dict,0,100,True,True)
+    scores = resources.get_recs(g.model,user_id,user_dict,item_dict,0,100,True,True)
     return getGameInfoByName(scores)
 
+
+# waiting for shaoze
+# def getTagFromText(text):
+#     return getTags(text)
 
 
 def getGameByImcompleteName(name):

@@ -58,5 +58,9 @@ def getSimilarGamesByUser():
     else:
         abort(404, "Error")
 
-
-
+# waiting for shaoze
+# @bp.route("/getTagsFromText", methods=['POST'])
+# def getTagsFromText():
+#     if request.method == 'POST':
+#         text = request.values.get('text')
+#         return getTagFromText(text)
