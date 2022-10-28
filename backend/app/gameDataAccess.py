@@ -23,7 +23,11 @@ def getRecByUser(user_id):
 
 
 
-
+def getGameByImcompleteName(name):
+    db = get_db()
+    result = db.execute('SELECT * FROM gamesdws WHERE gameName LIKE name')
+    result = result.fetchall()
+    return result
 
 def getGameInfoById(idArr):
     db = get_db()

@@ -25,6 +25,12 @@ def allGameInfo():
     return gameDataAccess.getAllGameInfo()
 
 
+@bp.route("/searchGameByName", methods=['POST'])
+def searchGameByName():
+    if request.method == 'POST':
+        name = request.values.get('name')
+        return gameDataAccess.getGameByImcompleteName(name)
+
 
 @bp.route("/getSimilarGamesByItem", methods=['POST'])
 def getSimilarGamesByItem():
