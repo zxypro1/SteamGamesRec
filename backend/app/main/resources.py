@@ -58,7 +58,7 @@ def create_item_dict(df,id_col,name_col):
     '''
     item_dict ={}
     for i in range(df.shape[0]):
-        item_dict[(df.loc[i,id_col])] = df.loc[i,name_col]
+        item_dict[df.loc[i,id_col]] = df.loc[i,name_col]
     return item_dict
 
 def run_model(interactions, n_components=30, loss='warp', epoch=30, n_jobs = 4):
@@ -111,8 +111,8 @@ def get_recs(model, interactions, user_id, user_dict,
     # Take required number of items from prediction list
     return_score_list = scores[0:num_items]
     # Convert from item id to item name using item_dict
-    known_items = list(pd.Series(known_items).apply(lambda x: item_dict[x]))
-    scores = list(pd.Series(return_score_list).apply(lambda x: item_dict[x]))
+    known_items = list(pd.Series(known_items).apply(lambda x: item_dict[float(x)]))
+    scores = list(pd.Series(return_score_list).apply(lambda x: item_dict[float(x)]))
     
     if show_known == True:
         print("Known Likes:")
@@ -162,10 +162,10 @@ def get_item_recs(item_emdedding_matrix, item_id,
                                   sort_values(ascending = False).head(n_items+1). \
                                   index[1:n_items+1]))
     if show == True:
-        print("Item of interest: {0}".format(item_dict[item_id]))
+        print("Item of interest: {0}".format(item_dict[float(item_id)]))
         print("Similar items:")
         counter = 1
         for i in recommended_items:
-            print(str(counter) + '- ' +  item_dict[i])
+            print(str(counter) + '- ' +  str(item_dict[float(i)])[2:-1])
             counter+=1
     return recommended_items

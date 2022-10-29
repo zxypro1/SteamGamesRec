@@ -77,11 +77,6 @@ function App() {
     filterGames(tag, price);
   }
 
-  const onChangeDescription = (desc) => {
-    console.log(description);
-    // setDescription(desc);
-  }
-
   const filterGames = (tag, price) => { // 筛选游戏
     const temp_list = [];
     for (let i = 0; i < data.length; i++) {
@@ -136,16 +131,22 @@ function App() {
 
   const removeItem = (key) => { // 去掉已选游戏
     setTableData((state) => state.filter((item) => item.id !== key.id));
+    getRecoByItem(tableData[-1]);
     console.log(tableData);
   }
 
   const addItem = (key) => { // 添加已选游戏
     console.log(key);
-    if (tableData.find((item) => item.id === key.id)) {
-      return;
+    if (mode === '0' || mode === '2') {
+      if (tableData.find((item) => item.id === key.id)) {
+        return;
+      }
+      setTableData((state) => state.concat(key));
+      getRecoByItem(tableData[-1]);
+      console.log(tableData);
+    } else {
+      getRecoByUser(key.name);
     }
-    setTableData((state) => state.concat(key));
-    console.log(tableData);
   }
 
   const genreList = []
@@ -153,9 +154,34 @@ function App() {
     genreList.push(<Option key={i} value={tagList[i]}>{tagList[i]}</Option>);
   }
 
-  const onSearch = (value) => { // 服务器搜索
+  const searchByItem = (item) => { // 通过游戏名搜索游戏
+    
+  }
+
+  const searchByUser = (user) => { // 通过用户名搜索用户
+
+  }
+
+  const getRecoByItem = (item) => { // 通过游戏推荐游戏
+
+  }
+
+  const getRecoByUser = (user) => { // 通过用户推荐游戏
+
+  }
+
+  const getRecoByDesc = (desc) => { // 通过描述推荐tag
+
+  }
+
+  const onSearch = (value) => { // 服务器搜索数据。两种情况：1. 搜索游戏 2. 搜索用户
     if (mode === '2') {
       value = description;
+      getRecoByDesc(value);
+    } else if (mode === '1') {
+      searchByUser(value);
+    } else if (mode === '0') {
+      searchByItem(value);
     }
     console.log(value);
     const getData = async () => {

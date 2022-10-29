@@ -1,25 +1,36 @@
+from unittest import result
 from .main.db import get_db
 from flask import url_for, request, g
 import pandas as pd
 from .main import resources
 
 
-item_dict = resources.create_item_dict(g.df, 'id', 'title')
-
 def getAllGameInfo():
-    db = get_db()
-    result = db.execute('SELECT * FROM gamesdws')
-    result = result.fetchall()
-    return result
+    # result = g.db.execute('SELECT * FROM gamesnewdws')
+    # result = result.fetchall()
+    # print(g.df)
+    # df = g.df.apply(lambda x: x.astype(str).str.encode('cp850').str.decode('gbk'))
+    # print(g.df[0:10])
+    print(g.df.loc[0:10,'publisher']);
+    return g.df[0:10].to_json(orient="records")
 
 def getRecByItem(item_id):
-    item_embedding_matrix = pd.read_csv(request.files['embeddings_item.csv'])
-    return resources.get_item_recs(item_embedding_matrix,item_id,item_dict,100,True)
+    item_list = resources.get_item_recs(g.item_dict,item_id,g.game_dict,100,True)
+    print(item_list)
+
+    result = []
+    for i in item_list:
+        res = pd.read_sql("select title, url, tags, price, id, developer, short_description from gamesnewdws where id = {}".format(i), g.db).iloc[0,:]
+        print(res)
+        result.append(res.to_json())
+        print(result)
+    # print(result)
+    return result
 
 def getRecByUser(user_id):
 
     user_dict = resources.create_user_dict(g.interactions)
-    scores = resources.get_recs(g.model,user_id,user_dict,item_dict,0,100,True,True)
+    scores = resources.get_recs(g.model,user_id,user_dict,g.game_dict,0,100,True,True)
     return getGameInfoByName(scores)
 
 
@@ -35,10 +46,9 @@ def getGameByImcompleteName(name):
     return result
 
 def getUserByImcompleteName(name):
-    db = get_db()
-    result = db.execute('SELECT * FROM usersdws WHERE userName LIKE name')
-    result = result.fetchall()
-    return result
+    result = pd.read_sql('SELECT * FROM user WHERE user_id LIKE ' + name, g.db)
+    # result = result.fetchall()
+    return result.to_string()
 
 
 def getGameInfoById(idArr):
