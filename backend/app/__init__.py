@@ -6,7 +6,7 @@ from .RecMode1 import bp as RecMode1_bp
 
 
 def creat_app():
-    app = Flask(__name__,template_folder="templates",static_folder="static",static_url_path="/app/static")
+    app = Flask(__name__,template_folder="templates",static_folder="static",static_url_path="/static")
     CORS(app)
     from . import main
     app.register_blueprint(main.main)

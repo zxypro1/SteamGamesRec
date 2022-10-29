@@ -151,22 +151,25 @@ function App() {
 
   const removeItem = (key) => { // 去掉已选游戏
     setTableData((state) => state.filter((item) => item.id !== key.id));
-    getRecoByItem(tableData[-1].id);
-    console.log(tableData);
+    const temp = tableData.filter((item) => item.id !== key.id);
+    console.log(temp);
+    if (temp.length !== 0) {
+      if (temp[temp.length-1].id !== tableData[tableData.length-1].id){
+        getRecoByItem(temp[temp.length-1].id);
+      }
+    } else {
+      setData(allgames);
+    }
   }
 
   const addItem = (key) => { // 添加已选游戏
     console.log(key);
-    if (mode === '0' || mode === '2') {
-      if (tableData.find((item) => item.id === key.id)) {
-        return;
-      }
-      setTableData((state) => state.concat(key));
-      getRecoByItem(tableData[-1].id);
-      console.log(tableData);
-    } else {
-      getRecoByUser(key.name);
+    if (tableData.find((item) => item.id === key.id)) {
+      return;
     }
+    setTableData((state) => state.concat(key));
+    console.log(tableData);
+    getRecoByItem(key.id);
   }
 
   const genreList = []
@@ -345,20 +348,6 @@ function App() {
       value = itemSearch;
       getRecoByItem(value);
       filterGames(tag, price);
-    } else {
-      console.log(value);
-      const getData = async () => {
-        const { data } = await axios.get('http://localhost:3001/user', {
-          params: {
-
-          }
-        })
-        console.log(data)
-        const { user } = { ...data }
-        setData(user)
-        filterGames(tag, price)
-      }
-      getData();
     }
   }
 
@@ -444,7 +433,7 @@ function App() {
               <Select
                 showSearch
                 value={userSearch}
-                placeholder="Please select a game"
+                placeholder="Please select a user"
                 defaultActiveFirstOption={false}
                 showArrow={false}
                 filterOption={false}
@@ -491,9 +480,9 @@ function App() {
           <List.Item>
             <Card 
             size='small' 
-            title={item.title} 
+            title={<a href={item.url}>{item.title}</a>}
             hoverable 
-            cover={<img alt="game_image" src={item.screenshots ? item.screenshots[0].path_full : "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"} />}
+            cover={<Image alt="game_image" src={item.screenshots ? item.screenshots[0].path_full : "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"} />}
             extra={<Button onClick={() => {removeItem(item)}}>Delete</Button>}>
               {item.short_description}
             </Card>

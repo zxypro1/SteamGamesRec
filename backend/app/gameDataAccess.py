@@ -31,8 +31,8 @@ def getAllGameInfo():
     # print(g.df[0:10])
     registerParams()
     result = []
-    res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background from gamesnewdws limit 1000", g.db)
-    for i in range(1000):
+    res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background from gamesnewdws limit 6000", g.db)
+    for i in range(6000):
         try:
             t = res.iloc[i, :].to_json()
             result.append(t)
