@@ -97,37 +97,37 @@ def get_recs(model, interactions, user_id, user_dict,
     '''
     n_users, n_items = interactions.shape
     # Get value for user_id using dictionary
-    user_x = user_dict[user_id]
+    user_x = user_dict[int(user_id)]
     # Generate predictions
     scores = pd.Series(model.predict(user_x,np.arange(n_items)))
     # Get top predictions
     scores.index = interactions.columns
     scores = list(pd.Series(scores.sort_values(ascending=False).index))
     # Get list of known values
-    known_items = list(pd.Series(interactions.loc[user_id,:] \
-                                 [interactions.loc[user_id,:] > threshold].index).sort_values(ascending=False))
+    known_items = list(pd.Series(interactions.loc[int(user_id),:] \
+                                 [interactions.loc[int(user_id),:] > threshold].index).sort_values(ascending=False))
     # Ensure predictions are not already known
     scores = [x for x in scores if x not in known_items]
     # Take required number of items from prediction list
     return_score_list = scores[0:num_items]
     # Convert from item id to item name using item_dict
-    known_items = list(pd.Series(known_items).apply(lambda x: item_dict[float(x)]))
-    scores = list(pd.Series(return_score_list).apply(lambda x: item_dict[float(x)]))
+    # known_items = list(pd.Series(known_items).apply(lambda x: item_dict[float(x)]))
+    # scores = list(pd.Series(return_score_list).apply(lambda x: item_dict[float(x)]))
     
-    if show_known == True:
-        print("Known Likes:")
-        counter = 1
-        for i in known_items:
-            print(str(counter) + '- ' + i)
-            counter+=1
+    # if show_known == True:
+    #     print("Known Likes:")
+    #     counter = 1
+    #     for i in known_items:
+    #         print(str(counter) + '- ' + i)
+    #         counter+=1
             
-    if show_recs == True:
-        print("\n Recommended Items:")
-        counter = 1
-        for i in scores:
-            print(str(counter) + '- ' + i)
-            counter+=1
-    return scores
+    # if show_recs == True:
+    #     print("\n Recommended Items:")
+    #     counter = 1
+    #     for i in scores:
+    #         print(str(counter) + '- ' + i)
+    #         counter+=1
+    return return_score_list
 
 def create_item_emdedding_matrix(model,interactions):
     '''
@@ -166,6 +166,7 @@ def get_item_recs(item_emdedding_matrix, item_id,
         print("Similar items:")
         counter = 1
         for i in recommended_items:
-            print(str(counter) + '- ' +  str(item_dict[float(i)])[2:-1])
-            counter+=1
+            if i in item_dict.keys():
+                print(str(counter) + '- ' +  str(item_dict[float(i)])[2:-1])
+                counter+=1
     return recommended_items

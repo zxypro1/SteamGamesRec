@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, make_response
 import json
+from numpy import greater
 from werkzeug.exceptions import abort
 from .main.db import get_db
 from . import gameDataAccess
@@ -59,8 +60,10 @@ def getSimilarGamesByUser():
         abort(404, "Error")
 
 # waiting for shaoze
-# @bp.route("/getTagsFromText", methods=['POST'])
-# def getTagsFromText():
-#     if request.method == 'POST':
-#         text = request.values.get('text')
-#         return getTagFromText(text)
+@bp.route("/getTagsFromText", methods=['POST'])
+def getTagsFromText():
+    if request.method == 'POST':
+        text = request.values.get('text')
+        return gameDataAccess.getTagFromText(text)
+    else:
+        abort(404, "Error")

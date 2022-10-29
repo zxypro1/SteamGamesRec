@@ -1,4 +1,6 @@
 from unittest import result
+from warnings import catch_warnings
+from .main.getTags import get_tag
 from .main.db import get_db
 from flask import url_for, request, g, session
 import pandas as pd
@@ -11,32 +13,48 @@ def getAllGameInfo():
     # print(g.df)
     # df = g.df.apply(lambda x: x.astype(str).str.encode('cp850').str.decode('gbk'))
     # print(g.df[0:10])
-    print(session.get('df').loc[0:10,'publisher']);
-    return session.get('df')[0:10].to_json(orient="records")
+    result = []
+    res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background from gamesnewdws limit 1000", g.db)
+    for i in range(1000):
+        try:
+            t = res.iloc[i, :].to_json()
+            result.append(t)
+        except:
+            continue
+    return result
 
-def getRecByItem(item_id):
-    item_list = resources.get_item_recs(session.get('item_dict'),item_id,session.get('game_dict'),100,True)
-    print(item_list)
-
+def pullGames(item_list):
     result = []
     for i in item_list:
-        res = pd.read_sql("select title, url, tags, price, id, developer, short_description from gamesnewdws where id = {}".format(i), session.get('db')).iloc[0,:]
-        print(res)
-        result.append(res.to_json())
-        print(result)
-    # print(result)
+        try:
+            res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background from gamesnewdws where id = {}".format(i), g.db).iloc[0,:]
+            # media = pd.read_sql("select header_image, screenshots, background from steam_media_data where steam_appid = {}".format(i), g.db).iloc[0,:]
+            res = res.to_json()
+            result.append(res)
+        except:
+            continue
+    return result
+
+def getRecByItem(item_id):
+    require_list = ['title', 'url', 'tags', 'price', 'id', 'developer', 'short_description']
+    item_list = resources.get_item_recs(g.item_dict,item_id,g.game_dict,100,True)
+
+    result = pullGames(item_list)
     return result
 
 def getRecByUser(user_id):
 
-    user_dict = resources.create_user_dict(session.get('interactions'))
-    scores = resources.get_recs(session.get('model'),user_id,user_dict,session.get('game_dict'),0,100,True,True)
-    return getGameInfoByName(scores)
+    scores = resources.get_recs(g.model,g.interactions,user_id,g.user_dict,g.game_dict,0,100,True,True)
+    return pullGames(scores)
 
 
 # waiting for shaoze
 # def getTagFromText(text):
 #     return getTags(text)
+def getTagFromText(text):
+    tags = get_tag(text)
+    return tags
+
 
 
 def getGameByImcompleteName(name):

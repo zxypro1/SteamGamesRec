@@ -1,7 +1,7 @@
 from app import creat_app
 from flask import g, request, session
 from sqlalchemy import create_engine
-from app.main.resources import create_item_dict, create_item_emdedding_matrix
+from app.main.resources import create_item_dict, create_item_emdedding_matrix, create_user_dict
 from flask_sqlalchemy import SQLAlchemy
 import os
 import pandas as pd
@@ -15,15 +15,19 @@ def first_action():
     # g.df = pd.read_csv(request.files['gamesdata.csv'])
     
     session['document_path'] = os.getcwd() + '/backend'
-    session['interactions'] = pd.read_csv(session.get('document_path') + '/instance/interactions.csv', index_col=0)
+    # session['item_dict'] = create_item_emdedding_matrix(model, interactions)
+
+@app.before_request
+def before_request():
+    g.interactions = pd.read_csv(session.get('document_path') + '/instance/interactions.csv', index_col=0)
     res = open(session.get('document_path') + '/instance/savemodel.pickle', 'rb')
-    session['model'] = pickle.load(res)
-    session['db'] = create_engine('mysql+mysqlconnector://root:root@127.0.0.1:3306/steam')
-    session['df'] = pd.read_sql('SELECT * FROM gamesnewdws', session.get('db'))
-    session['game_dict'] = create_item_dict(session.get('df'), 'id', 'title')
-    session['item_dict'] = create_item_emdedding_matrix(session.get('model'), session.get('interactions'))
-
-
+    g.db = create_engine('mysql+mysqlconnector://root:root@127.0.0.1:3306/steam')
+    df = pd.read_sql('SELECT * FROM gamesnewdws', g.db)
+    g.user_dict = create_user_dict(g.interactions)
+    # print(g.user_dict)
+    g.game_dict = create_item_dict(df, 'id', 'title')
+    g.model = pickle.load(res)
+    g.item_dict = create_item_emdedding_matrix(g.model, g.interactions)
     # g.document_path = os.getcwd() + '/backend'
     # g.interactions = pd.read_csv(g.document_path + '/instance/interactions.csv', index_col=0)
     # # g.interactions = g.interactions.iloc[:, 1:]
