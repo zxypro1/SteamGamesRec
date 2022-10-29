@@ -2,9 +2,8 @@ from flask import Blueprint, render_template, request, make_response
 import json
 from numpy import greater
 from werkzeug.exceptions import abort
-from .main.db import get_db
-from . import gameDataAccess
-from .main import resources
+import gameDataAccess
+
 
 bp = Blueprint("RecMode1", __name__)
 

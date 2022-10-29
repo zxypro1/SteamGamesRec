@@ -1,14 +1,14 @@
 from unittest import result
 from warnings import catch_warnings
-from .main.getTags import get_tag
-from .main.db import get_db
+from main.getTags import get_tag
+from main.db import get_db
 from flask import url_for, request, g, session
 from sqlalchemy import create_engine
-from app.main.resources import create_item_dict, create_item_emdedding_matrix, create_user_dict
+from main.resources import create_item_dict, create_item_emdedding_matrix, create_user_dict
 import pandas as pd
 import pickle
 import os
-from .main import resources
+from main import resources
 
 
 def registerParams():
