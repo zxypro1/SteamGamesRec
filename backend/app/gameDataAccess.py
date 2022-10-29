@@ -3,8 +3,24 @@ from warnings import catch_warnings
 from .main.getTags import get_tag
 from .main.db import get_db
 from flask import url_for, request, g, session
+from sqlalchemy import create_engine
+from app.main.resources import create_item_dict, create_item_emdedding_matrix, create_user_dict
 import pandas as pd
+import pickle
+import os
 from .main import resources
+
+
+def registerParams():
+    g.interactions = pd.read_csv(session.get('document_path') + '/instance/interactions.csv', index_col=0)
+    res = open(session.get('document_path') + '/instance/savemodel.pickle', 'rb')
+    df = pd.read_sql('SELECT * FROM gamesnewdws', g.db)
+    g.user_dict = create_user_dict(g.interactions)
+    # print(g.user_dict)
+    g.game_dict = create_item_dict(df, 'id', 'title')
+    g.model = pickle.load(res)
+    g.item_dict = create_item_emdedding_matrix(g.model, g.interactions)
+
 
 
 def getAllGameInfo():
@@ -13,6 +29,7 @@ def getAllGameInfo():
     # print(g.df)
     # df = g.df.apply(lambda x: x.astype(str).str.encode('cp850').str.decode('gbk'))
     # print(g.df[0:10])
+    registerParams()
     result = []
     res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background from gamesnewdws limit 1000", g.db)
     for i in range(1000):
@@ -24,6 +41,7 @@ def getAllGameInfo():
     return result
 
 def pullGames(item_list):
+    registerParams()
     result = []
     for i in item_list:
         try:
@@ -36,6 +54,7 @@ def pullGames(item_list):
     return result
 
 def getRecByItem(item_id):
+    registerParams()
     require_list = ['title', 'url', 'tags', 'price', 'id', 'developer', 'short_description']
     item_list = resources.get_item_recs(g.item_dict,item_id,g.game_dict,100,True)
 
@@ -43,7 +62,7 @@ def getRecByItem(item_id):
     return result
 
 def getRecByUser(user_id):
-
+    registerParams()
     scores = resources.get_recs(g.model,g.interactions,user_id,g.user_dict,g.game_dict,0,100,True,True)
     return pullGames(scores)
 
@@ -58,15 +77,13 @@ def getTagFromText(text):
 
 
 def getGameByImcompleteName(name):
-    db = get_db()
-    result = db.execute('SELECT * FROM gamesdws WHERE gameName LIKE name')
-    result = result.fetchall()
-    return result
+    result = pd.read_sql("SELECT id, title FROM gamesnewdws WHERE title LIKE '{}%'".format(name), g.db)
+    return result.to_json(orient='records')
 
 def getUserByImcompleteName(name):
-    result = pd.read_sql('SELECT * FROM user WHERE user_id LIKE ' + name, g.db)
+    result = pd.read_sql("SELECT * FROM user WHERE user_id LIKE '{}%'".format(name), g.db)
     # result = result.fetchall()
-    return result.to_string()
+    return result.to_json(orient='records')
 
 
 def getGameInfoById(idArr):

@@ -1,8 +1,8 @@
 @import '~antd/dist/antd.css';
 
-/* .gameList {
-  padding: 20px;
-} */
+.gameList {
+  border-radius: 10px;
+}
 
 .gameForm {
   margin: auto;
@@ -13,6 +13,31 @@
   flex-direction: column;
   background-color: gray;
   height: 100%;
+}
+
+.onLoading {
+  border-radius: 30px;
+  height: 100px;
+  width: 100px;
+  background-color: whitesmoke;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* background-color: #000; */
+  width:50%;
+  height: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 10;
+  /* left: 50%;
+  top: 50%; */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textbox {
+  font-size: xx-large;
 }
 
 .App-header {

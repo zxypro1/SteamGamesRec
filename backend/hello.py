@@ -14,32 +14,24 @@ app = creat_app()
 def first_action():
     # g.df = pd.read_csv(request.files['gamesdata.csv'])
     
+    # session['document_path'] = os.getcwd() + '/backend'
     session['document_path'] = os.getcwd() + '/backend'
     # session['item_dict'] = create_item_emdedding_matrix(model, interactions)
 
 @app.before_request
 def before_request():
-    g.interactions = pd.read_csv(session.get('document_path') + '/instance/interactions.csv', index_col=0)
-    res = open(session.get('document_path') + '/instance/savemodel.pickle', 'rb')
+    session['document_path'] = os.getcwd() + '/backend'
     g.db = create_engine('mysql+mysqlconnector://root:root@127.0.0.1:3306/steam')
-    df = pd.read_sql('SELECT * FROM gamesnewdws', g.db)
-    g.user_dict = create_user_dict(g.interactions)
-    # print(g.user_dict)
-    g.game_dict = create_item_dict(df, 'id', 'title')
-    g.model = pickle.load(res)
-    g.item_dict = create_item_emdedding_matrix(g.model, g.interactions)
-    # g.document_path = os.getcwd() + '/backend'
-    # g.interactions = pd.read_csv(g.document_path + '/instance/interactions.csv', index_col=0)
-    # # g.interactions = g.interactions.iloc[:, 1:]
-    # # print(g.interactions)
-
-    # res = open(g.document_path + '/instance/savemodel.pickle', 'rb')
-    # g.model = pickle.load(res)
-    # g.db = create_engine('mysql+mysqlconnector://root:root@127.0.0.1:3306/steam')
-    # g.df = pd.read_sql('SELECT * FROM gamesnewdws', g.db)
-    # # print(g.df)
-    # g.game_dict = create_item_dict(g.df, 'id', 'title')
-    # g.item_dict = create_item_emdedding_matrix(g.model, g.interactions)
+#     session['document_path'] = os.getcwd() + '/../backend'
+#     g.interactions = pd.read_csv(session.get('document_path') + '/instance/interactions.csv', index_col=0)
+#     res = open(session.get('document_path') + '/instance/savemodel.pickle', 'rb')
+#     g.db = create_engine('mysql+mysqlconnector://root:root@127.0.0.1:3306/steam')
+#     df = pd.read_sql('SELECT * FROM gamesnewdws', g.db)
+#     g.user_dict = create_user_dict(g.interactions)
+#     # print(g.user_dict)
+#     g.game_dict = create_item_dict(df, 'id', 'title')
+#     g.model = pickle.load(res)
+#     g.item_dict = create_item_emdedding_matrix(g.model, g.interactions)
 
 
 
