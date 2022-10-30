@@ -58,7 +58,7 @@ function App() {
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true)
-      axios.get('http://127.0.0.1:8080/allGameInfo')
+      axios.get('http://steam-recommendation.top/allGameInfo')
       .then(function (response) {
         console.log(response)
         let data = response.data
@@ -188,7 +188,7 @@ function App() {
   const getRecoByItem = (id) => { // 通过游戏推荐游戏
     const getData = async () => {
       setIsLoading(true)
-      axios.post('http://127.0.0.1:8080/getSimilarGamesByItem', qs.stringify({
+      axios.post('http://steam-recommendation.top/getSimilarGamesByItem', qs.stringify({
         gameId: id
       }))
       .then(function (response) {
@@ -211,7 +211,7 @@ function App() {
   const getRecoByUser = (id) => { // 通过用户推荐游戏
     const getData = async () => {
       setIsLoading(true)
-      axios.post('http://127.0.0.1:8080/getSimilarGamesByUser', qs.stringify({
+      axios.post('http://steam-recommendation.top/getSimilarGamesByUser', qs.stringify({
         userId: id
       }))
       .then(function (response) {
@@ -234,7 +234,7 @@ function App() {
   const getRecoByDesc = (desc) => { // 通过描述推荐tag
     const getData = async () => {
       setIsLoading(true)
-      axios.post('http://127.0.0.1:8080/getTagsFromText', qs.stringify({
+      axios.post('http://steam-recommendation.top/getTagsFromText', qs.stringify({
         text: desc
       }))
       .then(function (response) {
@@ -272,7 +272,7 @@ function App() {
     currentItemValue = newValue;
     const getData = async () => {
       console.log(newValue)
-      axios.post('http://127.0.0.1:8080/searchGameByName', qs.stringify({
+      axios.post('http://steam-recommendation.top/searchGameByName', qs.stringify({
         name: newValue
       }))
       .then(function (response) {
@@ -301,7 +301,7 @@ function App() {
     currentUserValue = newValue;
     const getData = async () => {
       console.log(newValue)
-      axios.post('http://127.0.0.1:8080/searchUserByName', qs.stringify({
+      axios.post('http://steam-recommendation.top/searchUserByName', qs.stringify({
         name: newValue
       }))
       .then(function (response) {
