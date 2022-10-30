@@ -16,12 +16,12 @@ This project implements game recommendation and distribution algorithms based on
 
 # SECTION 3 : CREDITS / PROJECT CONTRIBUTION
 
-| Official Full Name | Student ID (MTech Applicable) | Work Items (Who Did What)                                                                                                                           | Email (Optional)      |
-| :----------------- | :---------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------- |
-| Zhang Xingyu       |           A0261781B           | Designed overall system architecture, independent front-end development and back-end development, cloud server build and environment configuration. | e0535562@u.nus.edu    |
-| Peng Shaoze        |           A0261840J           | Overall system design, recommendation algorithm and system design, model training and text processing, data processing.                         | e0983234@u.nus.edu |
-| Tian Yuyang        |           A0261848U           | Recommendation algorithm design, recommendation system design, data preprocessing, documentation                                                    | e0535503@u.nus.edu    |
-| Xu Xindi           |           A0261833E           |                                                                                                                                                     |                       |
+| Official Full Name | Student ID (MTech Applicable) | Work Items (Who Did What)                                                                                                                           | Email (Optional)   |
+| :----------------- | :---------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- |
+| Zhang Xingyu       |           A0261781B           | Designed overall system architecture, independent front-end development and back-end development, cloud server build and environment configuration. | e0983175@u.nus.edu |
+| Peng Shaoze        |           A0261840J           | Design recommendation system architecture, train and optimize recommendation model, data processing and exploration.                                | e0983234@u.nus.edu |
+| Tian Yuyang        |           A0261848U           | Database structure design and database development, participate in product concept proposal and functional design.                                  | e0983242@u.nus.edu |
+| Xu Xindi           |           A0261833E           | Construct this system's backend with python, flask and SQLite, design system functions.                                                             | e0983227@u.nus.edu |
 
 # SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
@@ -33,5 +33,10 @@ Use Case Demo Video: [Click here](https://youtu.be/Yn10Qviu7Ww)
 
 # SECTION 6 : PROJECT REPORT / PAPER
 
-
 # SECTION 7 : MISCELLANEOUS
+
+Our steam games data and item-user data are from:
+
+[Item-User data](https://cseweb.ucsd.edu/~jmcauley/datasets.html#steam_data)
+
+[Steam Games data](https://www.kaggle.com/datasets/nikdavis/steam-store-games)
