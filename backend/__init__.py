@@ -13,7 +13,7 @@ def creat_app():
     app.register_blueprint(main.main)
     app.register_blueprint(RecMode1_bp)
     app.config['SECRET_KEY'] = '...自己生成的秘钥'
-    app.debug = True
+    app.debug = False
     return app
 
 app = creat_app()
@@ -23,16 +23,16 @@ def first_action():
     # g.df = pd.read_csv(request.files['gamesdata.csv'])
     
     # session['document_path'] = os.getcwd() + '/backend'
-    session['document_path'] = os.getcwd() + '/backend'
+    session['document_path'] = os.getcwd()
     # session['item_dict'] = create_item_emdedding_matrix(model, interactions)
 
 @app.before_request
 def before_request():
-    session['document_path'] = os.getcwd() + '/backend'
-    g.db = create_engine('mysql+mysqlconnector://root:root@127.0.0.1:3306/steam')
+    session['document_path'] = os.getcwd()
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='127.0.0.1', port=8080)
 
 
 
