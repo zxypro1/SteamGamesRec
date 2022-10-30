@@ -5,6 +5,7 @@ import logo from './Half-Life_lambda_logo.svg';
 import axios from 'axios'
 import tagList from './Taglist';
 import {Helmet} from 'react-helmet';
+import loading from './loading-gif.gif'
 // import qs from 'qs';
 // import jsonp from 'fetch-jsonp';
 import './App.css';
@@ -374,7 +375,10 @@ function App() {
         </a>
       </header>
       { isloading ? <div className='onLoading'>
-          <div className='textbox'>Loading data, Please wait...</div>
+          <div className='textbox'>
+            <p>Loading data, Please wait 1 to 2 min</p>
+            <img className='loading_gif' src={loading} alt="loading"/>
+          </div>
       </div> : ""}
       <div className='left'>
         <Form
