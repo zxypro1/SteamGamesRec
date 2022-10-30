@@ -31,7 +31,11 @@ Use Case Demo Video: [Click here](https://youtu.be/Yn10Qviu7Ww)
 
 # SECTION 5 : USER GUIDE
 
+[User Guide](https://github.com/zxypro1/SteamGamesRec/blob/main/ProjectReport/User%20Guide.pdf)
+
 # SECTION 6 : PROJECT REPORT / PAPER
+
+[Report](https://github.com/zxypro1/SteamGamesRec/blob/main/ProjectReport/IRS-PM-2022-08-22-IS04FT-GRP-SteamSpider-Steam-Games-Recommendation-Report.pdf)
 
 # SECTION 7 : MISCELLANEOUS
 
