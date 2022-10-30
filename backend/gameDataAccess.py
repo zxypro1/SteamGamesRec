@@ -29,7 +29,7 @@ def getAllGameInfo():
     # print(g.df)
     # df = g.df.apply(lambda x: x.astype(str).str.encode('cp850').str.decode('gbk'))
     # print(g.df[0:10])
-    registerParams()
+    # registerParams()
     result = []
     res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background from gamesnewdws limit 6000", g.db)
     for i in range(6000):
