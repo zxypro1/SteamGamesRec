@@ -19,7 +19,7 @@ This project implements game recommendation and distribution algorithms based on
 | Official Full Name | Student ID (MTech Applicable) | Work Items (Who Did What)                                                                                                                           | Email (Optional)      |
 | :----------------- | :---------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------- |
 | Zhang Xingyu       |           A0261781B           | Designed overall system architecture, independent front-end development and back-end development, cloud server build and environment configuration. | e0535562@u.nus.edu    |
-| Peng Shaoze        |           A0261840J           | Overall system design, Crawler & RPA agent implementation, use case & algorithm design, system implementation                                       | zhang_zekun@u.nus.edu |
+| Peng Shaoze        |           A0261840J           | Overall system design, recommendation algorithm and system design, model training and text processing, data processing and documentation.       | e0983234@u.nus.edu |
 | Tian Yuyang        |           A0261848U           | Recommendation algorithm design, recommendation system design, data preprocessing, documentation                                                    | e0535503@u.nus.edu    |
 | Xu Xindi           |           A0261833E           |                                                                                                                                                     |                       |
 
