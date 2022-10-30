@@ -1,13 +1,15 @@
 import { Form, Input, Button, List, Select, Slider, Card, Avatar, Image } from 'antd';
 import React, { useState, useEffect, useRef } from 'react'
 import qs from 'qs'
+import logo from './Half-Life_lambda_logo.svg';
 import axios from 'axios'
 import tagList from './Taglist';
+import {Helmet} from 'react-helmet';
 // import qs from 'qs';
 // import jsonp from 'fetch-jsonp';
 import './App.css';
 const { Option } = Select;
-const { Search, TextArea } = Input;
+const { TextArea } = Input;
 
 // let timeout;
 // let currentValue;
@@ -175,14 +177,6 @@ function App() {
   const genreList = []
   for (let i = 0; i < tagList.length; i++) {
     genreList.push(<Option key={i} value={tagList[i]}>{tagList[i]}</Option>);
-  }
-
-  const searchByItem = (item) => { // 通过游戏名搜索游戏
-    
-  }
-
-  const searchByUser = (user) => { // 通过用户名搜索用户
-
   }
 
   const getRecoByItem = (id) => { // 通过游戏推荐游戏
@@ -357,8 +351,27 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <p>Begin</p>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Steam-Recommendation</title>
+        <link rel="icon" href="./Half-Life_lambda_logo.svg" />
+      </Helmet>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Welcome to <code>steam-recommendation.top</code>
+        </p>
+        <p>
+          A steam games recommendation project base on <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React</a>
+        </p>
+        <a
+          className="App-link"
+          href="https://github.com/zxypro1/SteamGamesRec"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Project Repository
+        </a>
       </header>
       { isloading ? <div className='onLoading'>
           <div className='textbox'>Loading data, Please wait...</div>
@@ -372,6 +385,7 @@ function App() {
         initialValues={{ remember: true }}
         autoComplete="off">
           <Form.Item
+            className='input'
             label="Mode"
             name="mode"
             rules={[{ required: true, message: 'Please input your username!' }]}
@@ -494,9 +508,8 @@ function App() {
 
 
       <div className='right'>
-        <div>
+        <div className='gameList'>
           <List
-          className='gameList'
           itemLayout="vertical"
           size="large"
           pagination={{

@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/backend/static/build/static/css/main.6692687a.css",
-    "main.js": "/backend/static/build/static/js/main.0349d80a.js",
+    "main.css": "/backend/static/build/static/css/main.9452c5f9.css",
+    "main.js": "/backend/static/build/static/js/main.22a3ffb4.js",
     "static/js/787.cda612ba.chunk.js": "/backend/static/build/static/js/787.cda612ba.chunk.js",
+    "static/media/Half-Life_lambda_logo.svg": "/backend/static/build/static/media/Half-Life_lambda_logo.ae4e9cb81ae3542ff244bcfb540d6bae.svg",
     "index.html": "/backend/static/build/index.html",
-    "main.6692687a.css.map": "/backend/static/build/static/css/main.6692687a.css.map",
-    "main.0349d80a.js.map": "/backend/static/build/static/js/main.0349d80a.js.map",
+    "main.9452c5f9.css.map": "/backend/static/build/static/css/main.9452c5f9.css.map",
+    "main.22a3ffb4.js.map": "/backend/static/build/static/js/main.22a3ffb4.js.map",
     "787.cda612ba.chunk.js.map": "/backend/static/build/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6692687a.css",
-    "static/js/main.0349d80a.js"
+    "static/css/main.9452c5f9.css",
+    "static/js/main.22a3ffb4.js"
   ]
 }
