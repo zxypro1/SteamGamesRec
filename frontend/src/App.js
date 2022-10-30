@@ -1,13 +1,16 @@
 import { Form, Input, Button, List, Select, Slider, Card, Avatar, Image } from 'antd';
 import React, { useState, useEffect, useRef } from 'react'
 import qs from 'qs'
+import logo from './Half-Life_lambda_logo.svg';
 import axios from 'axios'
 import tagList from './Taglist';
+import {Helmet} from 'react-helmet';
+import loading from './loading-gif.gif'
 // import qs from 'qs';
 // import jsonp from 'fetch-jsonp';
 import './App.css';
 const { Option } = Select;
-const { Search, TextArea } = Input;
+const { TextArea } = Input;
 
 // let timeout;
 // let currentValue;
@@ -58,7 +61,7 @@ function App() {
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true)
-      axios.get('http://127.0.0.1:8080/allGameInfo')
+      axios.get('http://steam-recommendation.top/allGameInfo')
       .then(function (response) {
         console.log(response)
         let data = response.data
@@ -177,18 +180,10 @@ function App() {
     genreList.push(<Option key={i} value={tagList[i]}>{tagList[i]}</Option>);
   }
 
-  const searchByItem = (item) => { // 通过游戏名搜索游戏
-    
-  }
-
-  const searchByUser = (user) => { // 通过用户名搜索用户
-
-  }
-
   const getRecoByItem = (id) => { // 通过游戏推荐游戏
     const getData = async () => {
       setIsLoading(true)
-      axios.post('http://127.0.0.1:8080/getSimilarGamesByItem', qs.stringify({
+      axios.post('http://steam-recommendation.top/getSimilarGamesByItem', qs.stringify({
         gameId: id
       }))
       .then(function (response) {
@@ -211,7 +206,7 @@ function App() {
   const getRecoByUser = (id) => { // 通过用户推荐游戏
     const getData = async () => {
       setIsLoading(true)
-      axios.post('http://127.0.0.1:8080/getSimilarGamesByUser', qs.stringify({
+      axios.post('http://steam-recommendation.top/getSimilarGamesByUser', qs.stringify({
         userId: id
       }))
       .then(function (response) {
@@ -234,7 +229,7 @@ function App() {
   const getRecoByDesc = (desc) => { // 通过描述推荐tag
     const getData = async () => {
       setIsLoading(true)
-      axios.post('http://127.0.0.1:8080/getTagsFromText', qs.stringify({
+      axios.post('http://steam-recommendation.top/getTagsFromText', qs.stringify({
         text: desc
       }))
       .then(function (response) {
@@ -272,7 +267,7 @@ function App() {
     currentItemValue = newValue;
     const getData = async () => {
       console.log(newValue)
-      axios.post('http://127.0.0.1:8080/searchGameByName', qs.stringify({
+      axios.post('http://steam-recommendation.top/searchGameByName', qs.stringify({
         name: newValue
       }))
       .then(function (response) {
@@ -301,7 +296,7 @@ function App() {
     currentUserValue = newValue;
     const getData = async () => {
       console.log(newValue)
-      axios.post('http://127.0.0.1:8080/searchUserByName', qs.stringify({
+      axios.post('http://steam-recommendation.top/searchUserByName', qs.stringify({
         name: newValue
       }))
       .then(function (response) {
@@ -357,11 +352,33 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <p>Begin</p>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Steam-Recommendation</title>
+        <link rel="icon" href="./Half-Life_lambda_logo.svg" />
+      </Helmet>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Welcome to <code>steam-recommendation.top</code>
+        </p>
+        <p>
+          A steam games recommendation project base on <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React</a>
+        </p>
+        <a
+          className="App-link"
+          href="https://github.com/zxypro1/SteamGamesRec"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Project Repository
+        </a>
       </header>
       { isloading ? <div className='onLoading'>
-          <div className='textbox'>Loading data, Please wait...</div>
+          <div className='textbox'>
+            <p>Loading data, Please wait 1 to 2 min</p>
+            <img className='loading_gif' src={loading} alt="loading"/>
+          </div>
       </div> : ""}
       <div className='left'>
         <Form
@@ -372,6 +389,7 @@ function App() {
         initialValues={{ remember: true }}
         autoComplete="off">
           <Form.Item
+            className='input'
             label="Mode"
             name="mode"
             rules={[{ required: true, message: 'Please input your username!' }]}
@@ -494,9 +512,8 @@ function App() {
 
 
       <div className='right'>
-        <div>
+        <div className='gameList'>
           <List
-          className='gameList'
           itemLayout="vertical"
           size="large"
           pagination={{

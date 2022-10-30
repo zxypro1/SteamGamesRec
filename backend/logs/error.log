@@ -1,0 +1,790 @@
+[2022-10-30 09:33:32 +0800] [13945] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 09:33:32 +0800] [13945] [INFO] Listening at: http://0.0.0.0:8080 (13945)
+[2022-10-30 09:33:32 +0800] [13945] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 09:33:32 +0800] [13948] [INFO] Booting worker with pid: 13948
+[2022-10-30 09:33:32 +0800] [13948] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 1, in <module>
+    from flask import Flask,render_template,g,session
+ModuleNotFoundError: No module named 'flask'
+[2022-10-30 09:33:32 +0800] [13948] [INFO] Worker exiting (pid: 13948)
+[2022-10-30 09:33:32 +0800] [13945] [INFO] Shutting down: Master
+[2022-10-30 09:33:32 +0800] [13945] [INFO] Reason: Worker failed to boot.
+[2022-10-30 09:33:33 +0800] [13960] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 09:33:33 +0800] [13960] [INFO] Listening at: http://0.0.0.0:8080 (13960)
+[2022-10-30 09:33:33 +0800] [13960] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 09:33:33 +0800] [13969] [INFO] Booting worker with pid: 13969
+[2022-10-30 09:33:33 +0800] [13969] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 1, in <module>
+    from flask import Flask,render_template,g,session
+ModuleNotFoundError: No module named 'flask'
+[2022-10-30 09:33:33 +0800] [13969] [INFO] Worker exiting (pid: 13969)
+[2022-10-30 09:33:33 +0800] [13960] [INFO] Shutting down: Master
+[2022-10-30 09:33:33 +0800] [13960] [INFO] Reason: Worker failed to boot.
+[2022-10-30 11:45:12 +0800] [15713] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 11:45:12 +0800] [15713] [INFO] Listening at: http://0.0.0.0:8080 (15713)
+[2022-10-30 11:45:12 +0800] [15713] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 11:45:12 +0800] [15716] [INFO] Booting worker with pid: 15716
+[2022-10-30 11:45:12 +0800] [15716] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 2, in <module>
+    from flask_cors import CORS
+ModuleNotFoundError: No module named 'flask_cors'
+[2022-10-30 11:45:12 +0800] [15716] [INFO] Worker exiting (pid: 15716)
+[2022-10-30 11:45:12 +0800] [15713] [INFO] Shutting down: Master
+[2022-10-30 11:45:12 +0800] [15713] [INFO] Reason: Worker failed to boot.
+[2022-10-30 11:45:13 +0800] [15728] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 11:45:13 +0800] [15728] [INFO] Listening at: http://0.0.0.0:8080 (15728)
+[2022-10-30 11:45:13 +0800] [15728] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 11:45:13 +0800] [15737] [INFO] Booting worker with pid: 15737
+[2022-10-30 11:45:13 +0800] [15737] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 2, in <module>
+    from flask_cors import CORS
+ModuleNotFoundError: No module named 'flask_cors'
+[2022-10-30 11:45:13 +0800] [15737] [INFO] Worker exiting (pid: 15737)
+[2022-10-30 11:45:13 +0800] [15728] [INFO] Shutting down: Master
+[2022-10-30 11:45:13 +0800] [15728] [INFO] Reason: Worker failed to boot.
+[2022-10-30 11:49:59 +0800] [16493] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 11:49:59 +0800] [16493] [INFO] Listening at: http://0.0.0.0:8080 (16493)
+[2022-10-30 11:49:59 +0800] [16493] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 11:49:59 +0800] [16496] [INFO] Booting worker with pid: 16496
+[2022-10-30 11:49:59 +0800] [16496] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 3, in <module>
+    from RecMode1 import bp as RecMode1_bp
+  File "/www/wwwroot/backend/RecMode1.py", line 5, in <module>
+    import gameDataAccess
+  File "/www/wwwroot/backend/gameDataAccess.py", line 3, in <module>
+    from main.getTags import get_tag
+  File "/www/wwwroot/backend/main/getTags.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+[2022-10-30 11:49:59 +0800] [16496] [INFO] Worker exiting (pid: 16496)
+[2022-10-30 11:50:00 +0800] [16493] [INFO] Shutting down: Master
+[2022-10-30 11:50:00 +0800] [16493] [INFO] Reason: Worker failed to boot.
+[2022-10-30 11:50:00 +0800] [16509] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 11:50:00 +0800] [16509] [INFO] Listening at: http://0.0.0.0:8080 (16509)
+[2022-10-30 11:50:00 +0800] [16509] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 11:50:00 +0800] [16518] [INFO] Booting worker with pid: 16518
+[2022-10-30 11:50:01 +0800] [16518] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 3, in <module>
+    from RecMode1 import bp as RecMode1_bp
+  File "/www/wwwroot/backend/RecMode1.py", line 5, in <module>
+    import gameDataAccess
+  File "/www/wwwroot/backend/gameDataAccess.py", line 3, in <module>
+    from main.getTags import get_tag
+  File "/www/wwwroot/backend/main/getTags.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+[2022-10-30 11:50:01 +0800] [16518] [INFO] Worker exiting (pid: 16518)
+[2022-10-30 11:50:01 +0800] [16509] [INFO] Shutting down: Master
+[2022-10-30 11:50:01 +0800] [16509] [INFO] Reason: Worker failed to boot.
+[2022-10-30 11:56:02 +0800] [17259] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 11:56:02 +0800] [17259] [INFO] Listening at: http://0.0.0.0:8080 (17259)
+[2022-10-30 11:56:02 +0800] [17259] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 11:56:02 +0800] [17262] [INFO] Booting worker with pid: 17262
+[2022-10-30 11:56:02 +0800] [17262] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 3, in <module>
+    from RecMode1 import bp as RecMode1_bp
+  File "/www/wwwroot/backend/RecMode1.py", line 5, in <module>
+    import gameDataAccess
+  File "/www/wwwroot/backend/gameDataAccess.py", line 3, in <module>
+    from main.getTags import get_tag
+  File "/www/wwwroot/backend/main/getTags.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+[2022-10-30 11:56:02 +0800] [17262] [INFO] Worker exiting (pid: 17262)
+[2022-10-30 11:56:02 +0800] [17259] [INFO] Shutting down: Master
+[2022-10-30 11:56:02 +0800] [17259] [INFO] Reason: Worker failed to boot.
+[2022-10-30 11:56:03 +0800] [17275] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 11:56:03 +0800] [17275] [INFO] Listening at: http://0.0.0.0:8080 (17275)
+[2022-10-30 11:56:03 +0800] [17275] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 11:56:03 +0800] [17284] [INFO] Booting worker with pid: 17284
+[2022-10-30 11:56:04 +0800] [17284] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 3, in <module>
+    from RecMode1 import bp as RecMode1_bp
+  File "/www/wwwroot/backend/RecMode1.py", line 5, in <module>
+    import gameDataAccess
+  File "/www/wwwroot/backend/gameDataAccess.py", line 3, in <module>
+    from main.getTags import get_tag
+  File "/www/wwwroot/backend/main/getTags.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+[2022-10-30 11:56:04 +0800] [17284] [INFO] Worker exiting (pid: 17284)
+[2022-10-30 11:56:04 +0800] [17275] [INFO] Shutting down: Master
+[2022-10-30 11:56:04 +0800] [17275] [INFO] Reason: Worker failed to boot.
+[2022-10-30 11:58:13 +0800] [17606] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 11:58:13 +0800] [17606] [INFO] Listening at: http://0.0.0.0:8080 (17606)
+[2022-10-30 11:58:13 +0800] [17606] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 11:58:13 +0800] [17609] [INFO] Booting worker with pid: 17609
+[2022-10-30 11:58:15 +0800] [17609] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 3, in <module>
+    from RecMode1 import bp as RecMode1_bp
+  File "/www/wwwroot/backend/RecMode1.py", line 5, in <module>
+    import gameDataAccess
+  File "/www/wwwroot/backend/gameDataAccess.py", line 4, in <module>
+    from main.db import get_db
+  File "/www/wwwroot/backend/main/db.py", line 1, in <module>
+    from flask_sqlalchemy import SQLAlchemy
+ModuleNotFoundError: No module named 'flask_sqlalchemy'
+[2022-10-30 11:58:15 +0800] [17609] [INFO] Worker exiting (pid: 17609)
+[2022-10-30 11:58:15 +0800] [17606] [INFO] Shutting down: Master
+[2022-10-30 11:58:15 +0800] [17606] [INFO] Reason: Worker failed to boot.
+[2022-10-30 11:58:51 +0800] [17794] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 11:58:51 +0800] [17794] [INFO] Listening at: http://0.0.0.0:8080 (17794)
+[2022-10-30 11:58:51 +0800] [17794] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 11:58:51 +0800] [17797] [INFO] Booting worker with pid: 17797
+[2022-10-30 11:58:53 +0800] [17797] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/www/wwwroot/backend/__init__.py", line 3, in <module>
+    from RecMode1 import bp as RecMode1_bp
+  File "/www/wwwroot/backend/RecMode1.py", line 5, in <module>
+    import gameDataAccess
+  File "/www/wwwroot/backend/gameDataAccess.py", line 7, in <module>
+    from main.resources import create_item_dict, create_item_emdedding_matrix, create_user_dict
+  File "/www/wwwroot/backend/main/resources.py", line 8, in <module>
+    from lightfm import LightFM
+ModuleNotFoundError: No module named 'lightfm'
+[2022-10-30 11:58:53 +0800] [17797] [INFO] Worker exiting (pid: 17797)
+[2022-10-30 11:58:53 +0800] [17794] [INFO] Shutting down: Master
+[2022-10-30 11:58:53 +0800] [17794] [INFO] Reason: Worker failed to boot.
+[2022-10-30 11:59:27 +0800] [17995] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 11:59:27 +0800] [17995] [INFO] Listening at: http://0.0.0.0:8080 (17995)
+[2022-10-30 11:59:27 +0800] [17995] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 11:59:27 +0800] [17998] [INFO] Booting worker with pid: 17998
+[2022-10-30 12:02:17 +0800] [18333] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:02:17 +0800] [18333] [INFO] Listening at: http://0.0.0.0:8080 (18333)
+[2022-10-30 12:02:17 +0800] [18333] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:02:17 +0800] [18336] [INFO] Booting worker with pid: 18336
+[2022-10-30 12:05:04 +0800] [18584] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:05:04 +0800] [18584] [INFO] Listening at: http://127.0.0.1:8080 (18584)
+[2022-10-30 12:05:04 +0800] [18584] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:05:04 +0800] [18587] [INFO] Booting worker with pid: 18587
+[2022-10-30 12:05:11,915] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1818, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2309, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/www/wwwroot/backend/__init__.py", line 32, in before_request
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
+  File "<string>", line 2, in create_engine
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2022-10-30 12:05:37 +0800] [18882] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:05:37 +0800] [18882] [INFO] Listening at: http://127.0.0.1:8080 (18882)
+[2022-10-30 12:05:37 +0800] [18882] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:05:37 +0800] [18885] [INFO] Booting worker with pid: 18885
+[2022-10-30 12:05:45,822] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1818, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2309, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/www/wwwroot/backend/__init__.py", line 32, in before_request
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
+  File "<string>", line 2, in create_engine
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2022-10-30 12:06:33 +0800] [19082] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:06:33 +0800] [19082] [INFO] Listening at: http://127.0.0.1:8080 (19082)
+[2022-10-30 12:06:33 +0800] [19082] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:06:33 +0800] [19085] [INFO] Booting worker with pid: 19085
+[2022-10-30 12:06:38,022] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1818, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2309, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/www/wwwroot/backend/__init__.py", line 32, in before_request
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
+  File "<string>", line 2, in create_engine
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2022-10-30 12:07:03,750] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1818, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2309, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/www/wwwroot/backend/__init__.py", line 32, in before_request
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
+  File "<string>", line 2, in create_engine
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2022-10-30 12:07:04,828] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1818, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2309, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/www/wwwroot/backend/__init__.py", line 32, in before_request
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
+  File "<string>", line 2, in create_engine
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2022-10-30 12:07:06,095] ERROR in app: Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1818, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2309, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/www/wwwroot/backend/__init__.py", line 32, in before_request
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
+  File "<string>", line 2, in create_engine
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2022-10-30 12:07:07,520] ERROR in app: Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1818, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2309, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/www/wwwroot/backend/__init__.py", line 32, in before_request
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
+  File "<string>", line 2, in create_engine
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2022-10-30 12:07:45 +0800] [19486] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:07:45 +0800] [19486] [INFO] Listening at: http://127.0.0.1:8080 (19486)
+[2022-10-30 12:07:45 +0800] [19486] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:07:45 +0800] [19489] [INFO] Booting worker with pid: 19489
+[2022-10-30 12:07:52,353] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1818, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2309, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/www/wwwroot/backend/__init__.py", line 32, in before_request
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
+  File "<string>", line 2, in create_engine
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2022-10-30 12:08:28 +0800] [19690] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:08:28 +0800] [19690] [INFO] Listening at: http://127.0.0.1:8080 (19690)
+[2022-10-30 12:08:28 +0800] [19690] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:08:28 +0800] [19693] [INFO] Booting worker with pid: 19693
+[2022-10-30 12:09:18,242] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1818, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2309, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/www/wwwroot/backend/__init__.py", line 32, in before_request
+    g.db = create_engine('mysql+mysqlconnector://steam:apkzFGHakbZJ82AW@127.0.0.1:3306/steam')
+  File "<string>", line 2, in create_engine
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2022-10-30 12:10:20 +0800] [19939] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:10:20 +0800] [19939] [INFO] Listening at: http://127.0.0.1:8080 (19939)
+[2022-10-30 12:10:20 +0800] [19939] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:10:20 +0800] [19942] [INFO] Booting worker with pid: 19942
+[2022-10-30 12:20:16 +0800] [21085] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:20:16 +0800] [21085] [INFO] Listening at: http://127.0.0.1:8080 (21085)
+[2022-10-30 12:20:16 +0800] [21085] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:20:16 +0800] [21088] [INFO] Booting worker with pid: 21088
+[2022-10-30 12:23:05 +0800] [21262] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:23:05 +0800] [21262] [INFO] Listening at: http://127.0.0.1:8080 (21262)
+[2022-10-30 12:23:05 +0800] [21262] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:23:05 +0800] [21265] [INFO] Booting worker with pid: 21265
+[2022-10-30 12:23:59 +0800] [21446] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:23:59 +0800] [21446] [INFO] Listening at: http://127.0.0.1:8080 (21446)
+[2022-10-30 12:23:59 +0800] [21446] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:23:59 +0800] [21449] [INFO] Booting worker with pid: 21449
+[2022-10-30 12:26:17,922] ERROR in app: Exception on /allGameInfo [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/www/wwwroot/backend/RecMode1.py", line 25, in allGameInfo
+    return gameDataAccess.getAllGameInfo()
+  File "/www/wwwroot/backend/gameDataAccess.py", line 32, in getAllGameInfo
+    registerParams()
+  File "/www/wwwroot/backend/gameDataAccess.py", line 15, in registerParams
+    g.interactions = pd.read_csv(session.get('document_path') + '/instance/interactions.csv', index_col=0)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: '/www/wwwroot/backend/backend/instance/interactions.csv'
+[2022-10-30 12:27:10 +0800] [21730] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:27:10 +0800] [21730] [INFO] Listening at: http://127.0.0.1:8080 (21730)
+[2022-10-30 12:27:10 +0800] [21730] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:27:10 +0800] [21733] [INFO] Booting worker with pid: 21733
+[2022-10-30 12:27:46 +0800] [21730] [CRITICAL] WORKER TIMEOUT (pid:21733)
+[2022-10-30 12:27:47 +0800] [21733] [INFO] Worker exiting (pid: 21733)
+[2022-10-30 12:27:47 +0800] [21776] [INFO] Booting worker with pid: 21776
+[2022-10-30 12:31:04 +0800] [21730] [CRITICAL] WORKER TIMEOUT (pid:21776)
+[2022-10-30 12:31:04 +0800] [21776] [INFO] Worker exiting (pid: 21776)
+[2022-10-30 12:31:05 +0800] [21730] [WARNING] Worker with pid 21776 was terminated due to signal 9
+[2022-10-30 12:31:05 +0800] [21906] [INFO] Booting worker with pid: 21906
+[2022-10-30 12:40:28 +0800] [22320] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:40:28 +0800] [22320] [INFO] Listening at: http://127.0.0.1:8080 (22320)
+[2022-10-30 12:40:28 +0800] [22320] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:40:28 +0800] [22323] [INFO] Booting worker with pid: 22323
+[2022-10-30 12:41:20,592] ERROR in app: Exception on /allGameInfo [GET]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/www/wwwroot/backend/RecMode1.py", line 25, in allGameInfo
+    return gameDataAccess.getAllGameInfo()
+  File "/www/wwwroot/backend/gameDataAccess.py", line 32, in getAllGameInfo
+    registerParams()
+  File "/www/wwwroot/backend/gameDataAccess.py", line 15, in registerParams
+    g.interactions = pd.read_csv(session.get('document_path') + '/instance/interactions.csv', index_col=0)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 488, in _read
+    return parser.read(nrows)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1059, in read
+    df = DataFrame(col_dict, columns=columns, index=index)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/frame.py", line 614, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/construction.py", line 465, in dict_to_mgr
+    arrays, data_names, index, columns, dtype=dtype, typ=typ, consolidate=copy
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/construction.py", line 136, in arrays_to_mgr
+    arrays, arr_names, axes, consolidate=consolidate
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1773, in create_block_manager_from_arrays
+    blocks = _form_blocks(arrays, names, axes, consolidate)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1839, in _form_blocks
+    items_dict["NumericBlock"], consolidate=consolidate
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1929, in _multi_blockify
+    list(tup_block), dtype  # type: ignore[arg-type]
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1957, in _stack_arrays
+    stacked = np.empty(shape, dtype=dtype)
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 1.12 GiB for an array with shape (8556, 17543) and data type float64
+[2022-10-30 12:43:26 +0800] [22320] [WARNING] Worker with pid 22323 was terminated due to signal 9
+[2022-10-30 12:43:26 +0800] [22552] [INFO] Booting worker with pid: 22552
+[2022-10-30 12:46:02 +0800] [22770] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:46:02 +0800] [22770] [INFO] Listening at: http://127.0.0.1:8080 (22770)
+[2022-10-30 12:46:02 +0800] [22770] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:46:02 +0800] [22773] [INFO] Booting worker with pid: 22773
+[2022-10-30 12:49:05 +0800] [22964] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:49:05 +0800] [22964] [INFO] Listening at: http://127.0.0.1:8080 (22964)
+[2022-10-30 12:49:05 +0800] [22964] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:49:05 +0800] [22967] [INFO] Booting worker with pid: 22967
+[2022-10-30 12:50:08,198] ERROR in app: Exception on /getSimilarGamesByItem [POST]
+Traceback (most recent call last):
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/www/wwwroot/backend/RecMode1.py", line 48, in getSimilarGamesByItem
+    return gameDataAccess.getRecByItem(item_id)
+  File "/www/wwwroot/backend/gameDataAccess.py", line 57, in getRecByItem
+    registerParams()
+  File "/www/wwwroot/backend/gameDataAccess.py", line 15, in registerParams
+    g.interactions = pd.read_csv(session.get('document_path') + '/instance/interactions.csv', index_col=0)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 488, in _read
+    return parser.read(nrows)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1059, in read
+    df = DataFrame(col_dict, columns=columns, index=index)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/frame.py", line 614, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/construction.py", line 465, in dict_to_mgr
+    arrays, data_names, index, columns, dtype=dtype, typ=typ, consolidate=copy
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/construction.py", line 136, in arrays_to_mgr
+    arrays, arr_names, axes, consolidate=consolidate
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1773, in create_block_manager_from_arrays
+    blocks = _form_blocks(arrays, names, axes, consolidate)
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1839, in _form_blocks
+    items_dict["NumericBlock"], consolidate=consolidate
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1929, in _multi_blockify
+    list(tup_block), dtype  # type: ignore[arg-type]
+  File "/www/wwwroot/backend/75eec5a819fd971e63a55c466a36211c_venv/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1957, in _stack_arrays
+    stacked = np.empty(shape, dtype=dtype)
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 1.12 GiB for an array with shape (8556, 17543) and data type float64
+[2022-10-30 12:52:09 +0800] [22964] [WARNING] Worker with pid 22967 was terminated due to signal 9
+[2022-10-30 12:52:10 +0800] [23105] [INFO] Booting worker with pid: 23105
+[2022-10-30 12:54:01 +0800] [1668] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 12:54:01 +0800] [1668] [INFO] Listening at: http://127.0.0.1:8080 (1668)
+[2022-10-30 12:54:01 +0800] [1668] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 12:54:01 +0800] [1917] [INFO] Booting worker with pid: 1917
+[2022-10-30 13:01:51 +0800] [3051] [INFO] Starting gunicorn 20.1.0
+[2022-10-30 13:01:51 +0800] [3051] [INFO] Listening at: http://127.0.0.1:8080 (3051)
+[2022-10-30 13:01:51 +0800] [3051] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2022-10-30 13:01:51 +0800] [3054] [INFO] Booting worker with pid: 3054

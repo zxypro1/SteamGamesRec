@@ -10,6 +10,7 @@
     "axios": "^1.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -18,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prebuild":"rm -rf ../backend/templates/index.html && rm -rf ../backend/static/build",
+    "prebuild": "rm -rf ../backend/templates/index.html && rm -rf ../backend/static/build",
     "postbuild": "mv build/index.html ../backend/templates/ &&  mv build ../backend/static/"
   },
   "homepage": "/backend/static/build",

@@ -1,35 +1,51 @@
 @import '~antd/dist/antd.css';
 
 .gameList {
-  border-radius: 10px;
+  border-radius: 10px !important;
 }
 
 .gameForm {
   margin: auto;
 }
 
+[title="Mode"] {
+  color: white !important;
+}
+
+[title="Genre"] {
+  color: white !important;
+}
+
+[title="Games Search"] {
+  color: white !important;
+}
+
+[title="User Search"] {
+  color: white !important;
+}
+
+[title="Self description"] {
+  color: white !important;
+}
+
+[title="Price range"] {
+  color: white !important;
+}
 .App {
   flex:1;
   flex-direction: column;
-  background-color: gray;
+  background-color: #282c34;
   height: 100%;
 }
 
 .onLoading {
-  border-radius: 30px;
-  height: 100px;
-  width: 100px;
-  background-color: whitesmoke;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.349);
   position: fixed;
-  top: 50%;
-  left: 50%;
-  /* background-color: #000; */
-  width:50%;
-  height: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  top: 0%;
+  left: 0%;
   z-index: 10;
-  /* left: 50%;
-  top: 50%; */
   text-align: center;
   display: flex;
   align-items: center;
@@ -37,12 +53,21 @@
 }
 
 .textbox {
+  border-radius: 30px;
+  height: 40%;
+  width: 40%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #282c34;
   font-size: xx-large;
+  color: white;
+  flex-direction: column;
 }
 
-.App-header {
-  height: 400px;
-  text-align: center;
+.loading_gif {
+  height: 10%;
 }
 
 .left {
@@ -66,4 +91,41 @@
   padding-bottom: 20px;
   /* background-color: blue; */
   margin-left: 400px;
+}
+
+.App-logo {
+  height: 40vmin;
+  width: 40vmin;
+  margin-bottom: 20px;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
