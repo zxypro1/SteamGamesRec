@@ -374,12 +374,12 @@ function App() {
           Project Repository
         </a>
       </header>
-      { isloading ? <div className='onLoading'>
+      <div className='onLoading' style={{  display: isloading ? "" : "none" }}>
           <div className='textbox'>
             <p>Loading data, Please wait 1 to 2 min</p>
             <img className='loading_gif' src={loading} alt="loading"/>
           </div>
-      </div> : ""}
+      </div>
       <div className='left'>
         <Form
         className='gameForm'
