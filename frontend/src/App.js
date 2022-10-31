@@ -343,9 +343,9 @@ function App() {
 
   const getItemPrice = (price) => {
     if (price) {
-      if (price === "0.00" || price === "Free To Play" || price === "Free") {
+      if (price === "0.00" || price.toLowerCase() === "free to play" || price.toLowerCase() === "free") {
         return <Statistic value="Free" valueStyle={{ color: '#5c7e0f' }}></Statistic>
-      } else if (price === "Third-party") {
+      } else if (price.toLowerCase() === "third-party") {
         return <Statistic value="N/A" valueStyle={{ color: '#5c7e0f' }}></Statistic>
       } else {
         return <Statistic value={price} precision={2} valueStyle={{ color: '#5c7e0f' }} suffix="$"></Statistic>
