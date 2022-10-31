@@ -84,6 +84,11 @@
   margin-right: 20px;
 }
 
+.developer-font {
+  font-size: small;
+  color: #bfbfbf;
+}
+
 .right {
   height:100%;
   padding-left: 20px;

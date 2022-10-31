@@ -31,8 +31,8 @@ def getAllGameInfo():
     # print(g.df[0:10])
     # registerParams()
     result = []
-    res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background from gamesnewdws limit 6000", g.db)
-    for i in range(6000):
+    res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background, reviews_url, sentiment, metascore from gamesnewdws", g.db)
+    for i in range(len(res)):
         try:
             t = res.iloc[i, :].to_json()
             result.append(t)
@@ -45,7 +45,7 @@ def pullGames(item_list):
     result = []
     for i in item_list:
         try:
-            res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background from gamesnewdws where id = {}".format(i), g.db).iloc[0,:]
+            res = pd.read_sql("select title, url, tags, price, id, developer, short_description, header_image, screenshots, background, reviews_url, sentiment, metascore from gamesnewdws where id = {}".format(i), g.db).iloc[0,:]
             # media = pd.read_sql("select header_image, screenshots, background from steam_media_data where steam_appid = {}".format(i), g.db).iloc[0,:]
             res = res.to_json()
             result.append(res)

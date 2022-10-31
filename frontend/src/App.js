@@ -1,5 +1,6 @@
-import { Form, Input, Button, List, Select, Slider, Card, Avatar, Image } from 'antd';
+import { Form, Input, Button, List, Select, Slider, Card, Avatar, Image, Tag, Statistic, Carousel, Collapse, Typography } from 'antd';
 import React, { useState, useEffect, useRef } from 'react'
+import { HeartFilled } from '@ant-design/icons';
 import qs from 'qs'
 import logo from './Half-Life_lambda_logo.svg';
 import axios from 'axios'
@@ -11,38 +12,12 @@ import loading from './loading-gif.gif'
 import './App.css';
 const { Option } = Select;
 const { TextArea } = Input;
+const { Text } = Typography;
 
-// let timeout;
-// let currentValue;
-// const fetch = (value, callback) => {
-//   if (timeout) {
-//     clearTimeout(timeout);
-//     timeout = null;
-//   }
-//   currentValue = value;
-//   const fake = () => {
-//     const str = qs.stringify({
-//       code: 'utf-8',
-//       q: value,
-//     });
-//     jsonp(`https://suggest.taobao.com/sug?${str}`)
-//       .then((response) => response.json())
-//       .then((d) => {
-//         if (currentValue === value) {
-//           const { result } = d;
-//           const data = result.map((item) => ({
-//             value: item[0],
-//             text: item[0],
-//           }));
-//           callback(data);
-//         }
-//       });
-//   };
-//   timeout = setTimeout(fake, 300);
-// };
 
 function App() {
   // 删除单条
+  const tag_colors = ["magenta", "red", "volcano", "orange", "gold", "lime", "green", "cyan", "blue", "geekblue", "purple"] // tag colors list
   const [isloading, setIsLoading] = useState(false); // 是否在加载中
   const [allgames, setAllGames] = useState([]) // 默认显示所有游戏的列表
   const [behind, setBehind] = useState([]) // 获取的游戏list
@@ -56,6 +31,7 @@ function App() {
   const [tag, setTag] = useState([]) // 已选择的筛选tag Filter tags
   const [price, setPrice] = useState([0,60]) // 价格范围 Price range
   const [description, setDescription] = useState("") // 个人描述 Self description
+  const { Panel } = Collapse;
   const form = useRef();
 
   useEffect(() => {
@@ -346,6 +322,55 @@ function App() {
     }
   }
 
+  const tags_list = (tags) => {
+    const result = [];
+    for (let i = 0; i < tags.length; i++) {
+      result.push(<Tag color={tag_colors[Math.floor(Math.random() * 11 + 1)]}>{tags[i]}</Tag>);
+    }
+    return result;
+  }
+
+  const getSentimentColor = (senti) => {
+    switch (senti) {
+      case "Overwhelmingly Positive": return '#5c7e0f';
+      case "Very Positive": return '#64bbec';
+      case "Mostly Positive": return '#64bbec';
+      case "Positive": return '#64bbec';
+      case "Mixed": return '#a7936f';
+      default: return 'red';
+    }
+  }
+
+  const getItemPrice = (price) => {
+    if (price) {
+      if (price === "0.00" || price === "Free To Play" || price === "Free") {
+        return <Statistic value="Free" valueStyle={{ color: '#5c7e0f' }}></Statistic>
+      } else if (price === "Third-party") {
+        return <Statistic value="N/A" valueStyle={{ color: '#5c7e0f' }}></Statistic>
+      } else {
+        return <Statistic value={price} precision={2} valueStyle={{ color: '#5c7e0f' }} suffix="$"></Statistic>
+      }
+    } else {
+      return <Statistic value="N/A" valueStyle={{ color: '#5c7e0f' }}></Statistic>
+    }
+  }
+
+  const getMetaScore = (meta) => {
+    if (meta) {
+      return <Card><Statistic title="Meta Score" value={meta} valueStyle={{ color: 'red' }}></Statistic></Card>
+    }
+  }
+
+  const getPreviewImages = (images) => {
+    const result = []
+    if (images) {
+      for (let i = 0; i < images.length; i++) {
+        result.push(<Image src={images[i].path_full} alt='preview' width={272}/>);
+      }
+    }
+    return result;
+  }
+
   const item_options = itemData.map((d) => <Option key={d.id} value={d.id}>{d.title}</Option>);
   const user_options = userData.map((d) => <Option key={d.uid} value={d.uid}>{d.user_id}</Option>);
 
@@ -500,9 +525,13 @@ function App() {
             size='small' 
             title={<a href={item.url}>{item.title}</a>}
             hoverable 
-            cover={<Image alt="game_image" src={item.screenshots ? item.screenshots[0].path_full : "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"} />}
-            extra={<Button onClick={() => {removeItem(item)}}>Delete</Button>}>
-              {item.short_description}
+            cover={<Image alt="game_image" src={item.header_image ? item.header_image : "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"} />}
+            extra={<Button shape='round' onClick={() => {removeItem(item)}}>Delete</Button>}>
+              <Collapse defaultActiveKey={['1']}>
+                <Panel header="Description">
+                  <p>{item.short_description}</p>
+                </Panel>
+              </Collapse>
             </Card>
           </List.Item>
         )}>
@@ -514,6 +543,7 @@ function App() {
       <div className='right'>
         <div className='gameList'>
           <List
+          loading={isloading}
           itemLayout="vertical"
           size="large"
           pagination={{
@@ -525,7 +555,7 @@ function App() {
           dataSource={data} 
           footer={
             <div>
-              <b>Steam Recommendation List</b>
+              <b style={{color: 'white'}}>Games Number: {data ? data.length : 0}</b>
             </div>
           }
           renderItem={ item => (
@@ -534,21 +564,55 @@ function App() {
               background: 'white'
             }}
             actions={
-              [<Button type="primary" onClick={() => {addItem(item)}}>Like</Button>]
+              [<Button shape="round" type="primary" icon={<HeartFilled style={{color: '#f969b4'}}/>} onClick={() => {addItem(item)}}>{" Like"}</Button>,
+              getItemPrice(item.price),
+              <Tag color={ getSentimentColor(item.sentiment) }><a href={item.reviews_url}>{item.sentiment}</a></Tag>,
+              getMetaScore(item.metascore)]
             }
             extra={
+              // <div key={item.id}>
+              //   <Image
+              //     preview={{
+              //       visible: false
+              //     }}
+              //     width={272}
+              //     alt="logo"
+              //     onClick={() => setVisible(true)}
+              //     src={item.header_image ? item.header_image : "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"}
+              //   />
+              //   <div
+              //     style={{ display: 'none' }}
+              //     >
+              //       <Image.PreviewGroup
+              //         preview={{
+              //           visible,
+              //           onVisibleChange: (vis) => setVisible(vis),
+              //         }}
+              //       >
+              //         {getPreviewImages(item.screenshots)}
+              //       </Image.PreviewGroup>
+              //     </div>
+              // </div>
+              item.screenshots ?
+              <Carousel style={{ width: 272 }} autoplay>
+                <Image
+                  width={272}
+                  alt="logo"
+                  src={item.header_image ? item.header_image : "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"}
+                />
+                {getPreviewImages(item.screenshots)}
+              </Carousel>:
               <Image
                 width={272}
                 alt="logo"
-                src={item.screenshots ? item.screenshots[0].path_full : "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"}
+                src={item.header_image ? item.header_image : "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"}
               />
             }
             >
-              <Image></Image>
               <List.Item.Meta
                 avatar={<Avatar src={item.header_image} />}
-                title={<a href={item.url}>{item.title}</a>}
-                description={item.tags[0] + '\n Price: ' + item.price}
+                title={<a href={item.url}>{item.title}<Text className='developer-font'>   by {item.developer}</Text></a>}
+                description={<div style={{overflow: 'hidden', whiteSpace: 'nowrap'}}>{tags_list(item.tags)}</div>}
               />
               {item.short_description}
             </List.Item>
